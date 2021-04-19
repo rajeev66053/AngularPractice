@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="Scripts/angular.js"></script>
+		<script src="Scripts/Script18.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/style10.css">
+	</head>
+	<body  ng-app="myModule">
+		<!-- Need localhost server to show this working  -->
+			<div ng-controller="myController">
+
+			<h1>Ng Include without scope model</h1>
+			<br/><br/>
+			<div ng-include="'EmployeeTable18.html'"></div> <!-- This is one way without scope employeeView -->
+
+			<!-- OR we can use ng include using scope employeeView also -->
+
+			<h1>Ng Include with scope model and select different layout</h1>
+			<br/><br/>
+			Select View :
+			<select ng-model="employeeView">
+				<option value="EmployeeTable18.html">Table</option>
+				<option value="EmployeeList18.html">List</option>
+			</select>
+
+			<div ng-include="employeeView"></div> <!-- This is another way using employeeView -->
+		</div>
+	</body>
+</html>

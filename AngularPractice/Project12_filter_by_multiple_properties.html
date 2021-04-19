@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+	<head>
+		<script src="Scripts/angular.js"></script>
+		<script src="Scripts/Script12.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/style10.css">
+	</head>
+	<body ng-app="myModule">
+		<h1>Search By Exact match</h1>
+		<div ng-controller="myController">
+			<input type="text" placeholder="Search Name" ng-model="searchText.name"/>
+			<!--It will search on name column only -->
+			<input type="text" placeholder="Search City" ng-model="searchText.city"/> 
+			<!--It will search on city column only-->
+			<input type="checkbox" ng-model="exactMatch"/>Exact match
+			<br/><br/>
+			
+			<table> 
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Gender</th>
+						<th>Salary</th>
+						<th>City</th>
+					</tr>
+				</thead>
+				<tbody>
+				<tr ng-repeat="employee in employees | filter:searchText:exactMatch">
+					<td>{{employee.name }}</td>
+					<td>{{employee.gender }}</td>
+					<td>{{employee.salary |	number :2}}</td>
+					<td>{{employee.city }}</td>
+				</tr>
+			</tbody>
+			</table>
+		</div>
+
+		<h1>Search By Multiple Properties</h1>
+		<div ng-controller="myController">
+			<input type="text" placeholder="Search City and Name" ng-model="searchText"/>
+			<br/><br/>
+			
+			<table> 
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Gender</th>
+						<th>Salary</th>
+						<th>City</th>
+					</tr>
+				</thead>
+				<tbody>
+				<tr ng-repeat="employee in employees | filter:search">
+					<td>{{employee.name }}</td>
+					<td>{{employee.gender }}</td>
+					<td>{{employee.salary |	number :2}}</td>
+					<td>{{employee.city }}</td>
+				</tr>
+			</tbody>
+			</table>
+		</div>
+	</body>
+</html>

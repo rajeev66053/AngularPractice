@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+	<head>
+		<script src="Scripts/angular.js"></script>
+		<script src="Scripts/Script14.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/style10.css">
+	</head>
+	<body ng-app="myModule">
+		
+		<h1>Ng Hide And Ng Show</h1>
+		<div ng-controller="myController">
+			<input type="checkbox" ng-model="hideSalary" /> Hide Salary
+			<table> 
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Gender</th>
+						<th>City</th>
+						<th ng-hide="hideSalary">Salary</th><!-- This will show salry head when unchecked and hide when checked -->
+						<!--<th ng-show="!hideSalary">Salary</th> This will also do the same thing but using ng-show -->
+					</tr>
+				</thead>
+				<tbody>
+				<tr ng-repeat="employee in employees">
+					<td>{{employee.name }}</td>
+					<td>{{employee.gender }}</td>
+					<td>{{employee.city }}</td>
+					<td ng-hide="hideSalary">{{employee.salary }}</td>
+				</tr>
+			</tbody>
+			</table>
+		</div>
+
+
+		<h1>Mask nad Unmask Salary column</h1>
+		<div ng-controller="myController">
+			<input type="checkbox" ng-model="hideSalary" /> Hide Salary
+			<table> 
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Gender</th>
+						<th>City</th>
+						<th ng-hide="hideSalary">Salary</th>
+						<th ng-show="hideSalary">Salary</th>
+					</tr>
+				</thead>
+				<tbody>
+				<tr ng-repeat="employee in employees">
+					<td>{{employee.name }}</td>
+					<td>{{employee.gender }}</td>
+					<td>{{employee.city }}</td>
+					<td ng-hide="hideSalary">{{employee.salary }}</td>
+					<td ng-show="hideSalary">######</td>
+				</tr>
+			</tbody>
+			</table>
+		</div>
+	</body>
+</html>

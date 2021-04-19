@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+	<head>
+		<script src="Scripts/angular.js"></script>
+		<script src="Scripts/Script13.js"></script>
+		<script src="Scripts/Filter13.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/style10.css">
+	</head>
+	<body ng-app="myModule">
+		
+		<h1>Custom Filter</h1>
+		<div ng-controller="myController">
+			<table> 
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Gender</th>
+						<th>Salary</th>
+					</tr>
+				</thead>
+				<tbody>
+				<tr ng-repeat="employee in employees">
+					<td>{{employee.name }}</td>
+					<td>{{employee.gender | gender }}</td>
+					<td>{{employee.salary }}</td>
+				</tr>
+			</tbody>
+			</table>
+		</div>
+	</body>
+</html>

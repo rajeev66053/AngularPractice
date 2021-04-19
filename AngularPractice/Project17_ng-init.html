@@ -1,0 +1,23 @@
+<html>
+	<head>
+		<script src="Scripts/angular.js"></script>
+		<script src="Scripts/Script17.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/style10.css">
+	</head>
+	<body  ng-app="myModule">
+			<h1>Ng Init</h1>
+			<div ng-controller="myController">
+				<ul>
+					<li ng-repeat="country in countries" ng-init="ParentIndex = $index">
+						{{country.name}}
+						<ul>
+							<li ng-repeat=" city in country.cities">
+								{{city.name}} -ParentIndex ={{ParentIndex}} -Index ={{$index}}
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</body>
+</html>

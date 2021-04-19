@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+	<head>
+		<script src="Scripts/angular.js"></script>
+		<script src="Scripts/Script8.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/style7.css">
+	</head>
+	<body ng-app="myModule" style="font-family: Arial">
+		<h1>Handling Events</h1>
+		<div ng-controller="myController">
+			Rows to display:<input type="number" step="1" min="0" max="5" ng-model="rowLimit"/>
+			<br/><br/>
+			<table> 
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Date Of Birth</th>
+						<th>Gender</th>
+						<th>Salary (number)</th>
+						<th>Salary (currency)</th>
+					</tr>
+				</thead>
+				<tbody>
+				<tr ng-repeat="employee in employees | limitTo:rowLimit"><!--{{expression | limitTo : limit : begin}}-->
+					<td>{{employee.name | uppercase}}</td>		<!--{{expression | filtername:parameter}}-->	
+					<td>{{employee.dateOfBirth | date :"dd/MM/yyyy" }}</td><!--{{expression | filtername:parameter}}-->
+					<td>{{employee.gender | lowercase}}</td><!--{{expression | filtername:parameter}}-->
+					<td>{{employee.salary |	number :2}}</td><!--{{expression | filtername:parameter}}-->
+					<td>{{employee.salary | currency:"£":1 }}</td><!--{{expression | filtername : parameter : limit}}  "$"" is a default currency-->
+				</tr>
+			</tbody>
+			</table>
+		</div>
+	</body>
+</html>

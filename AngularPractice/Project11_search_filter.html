@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+	<head>
+		<script src="Scripts/angular.js"></script>
+		<script src="Scripts/Script11.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/style10.css">
+	</head>
+	<body ng-app="myModule">
+		<h1>Sort By Table Header</h1>
+		<div ng-controller="myController">
+			Search: <input type="text" placeholder="Search Employee" ng-model="searchText"/><!--It will search on all column OR
+			 Search: <input type="text" placeholder="Search Employee" ng-model="searchText.city"/> It will search only on city column-->
+			<br/><br/>
+			
+			<table> 
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Gender</th>
+						<th>Salary</th>
+						<th>City</th>
+					</tr>
+				</thead>
+				<tbody>
+				<tr ng-repeat="employee in employees | filter:searchText">
+					<td>{{employee.name }}</td>
+					<td>{{employee.gender }}</td>
+					<td>{{employee.salary |	number :2}}</td>
+					<td>{{employee.city }}</td>
+				</tr>
+			</tbody>
+			</table>
+		</div>
+	</body>
+</html>
